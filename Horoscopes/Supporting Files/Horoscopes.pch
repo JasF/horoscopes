@@ -1,0 +1,53 @@
+//
+//  Horoscopes.pch
+//  Horoscopes
+//
+//  Created by Jasf on 28.10.2017.
+//  Copyright © 2017 Mail.Ru. All rights reserved.
+//
+
+#ifndef Horoscopes_pch
+#define Horoscopes_pch
+
+#ifdef __OBJC__
+#import "EXTScope.h"
+#import "Categories.h"
+#import <CoreFoundation/CoreFoundation.h>
+#import <Foundation/Foundation.h>
+#import "UIView+TKGeometry.h"
+#import "UIView+Horo.h"
+#import "Logger.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+
+CF_INLINE bool IsEqualFloat(float a, float b) { return ABS(a - b) < pow(10, -10); }
+CF_INLINE bool IsFloatEqual(float a, float b) { return IsEqualFloat(a,b);}
+
+typedef NS_ENUM(NSInteger, Direction) {
+    DirectionBackToRight,
+    DirectionForwardToLeft
+};
+
+#define L(a) NSLocalizedString(a, nil)
+
+typedef NS_ENUM (NSInteger, TouchState) {
+    TouchBegin,
+    TouchCancelled,
+    TouchFinished
+};
+
+typedef BOOL (^TappedBlock)(void);
+
+#define Log(fmt, ...) [[Logger shared] log:fmt, ##__VA_ARGS__]
+
+#if DEBUG
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+#else
+static const DDLogLevel ddLogLevel = DDLogLevelWarning;
+#endif
+
+#endif
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* Horoscopes_pch */

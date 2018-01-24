@@ -1,0 +1,72 @@
+/* 
+  Localization.strings
+  Horoscopes
+
+  Created by Jasf on 03.12.2017.
+  Copyright © 2017 Mail.Ru. All rights reserved.
+*/
+"begin_update"="Begin update";
+"friends"="Friends";
+"account"="Account";
+"birthday"="Birthday:";
+"notifications"="Notifications";
+"everyday_pushes"="Everyday pushes";
+"january"="January";
+"february"="February";
+"march"="March";
+"april"="April";
+"may"="May";
+"june"="June";
+"july"="July";
+"august"="August";
+"september"="September";
+"october"="October";
+"november"="November";
+"december"="December";
+"aquarius"="Aquarius";
+"pisces"="Pisces";
+"aries"="Aries";
+"taurus"="Taurus";
+"gemini"="Gemini";
+"cancer"="Cancer";
+"leo"="Leo";
+"virgo"="Virgo";
+"libra"="Libra";
+"scorpio"="Scorpio";
+"sagittarius"="Sagittarius";
+"capricorn"="Capricorn";
+"yesterday"="Yesterday";
+"today"="Today";
+"tomorrow"="Tomorrow";
+"week"="Week";
+"month"="Month";
+"year"="Year";
+"authorizing"="Authenticating";
+"loading_friends"="Loading friends";
+"%@_friends_loaded"="%@ Friends loaded";
+"cancel"="Cancel";
+"friends_search"="Friends search";
+"person_birthday_status_ready_for_request"="Needs update";
+"person_birthday_status_failed"="Not available";
+"updating"="Updating";
+"cancel_current_birthday_request_text"="Cancel current birthday request for friend %@?";
+"yes"="Yes";
+"no"="No";
+"you_birthday_date"="You birthday date";
+"feedback"="Feedback";
+"feedback_text"="\n\n\n\n----------------------------------------------------\nPlease do not delete this information.\nVersion: %@ (%@)\nOS: %.1f\nToken: $^";
+"lucky_horoscope_feedback"="Lucky Horoscope Feedback";
+"send_feedback_thanks"="Thank You for feedback!";
+"pushes_enabled"="Everyday notifications";
+"push_time"="Notifications Time";
+"notifications"="Notifications";
+"push_time_title"="Notifications Time";
+"cannot_download_horoscopes"="Network error";
+"no_connection_repeat"="Repeat";
+"menu_cell_friends"="Friends";
+"menu_cell_account"="Account";
+"menu_cell_notifications"="Notifications";
+"menu_cell_feedback"="Feedback";
+"menu_cell_prediction"="You Horoscope";
+"you_are_zodiacName"="You are %@";
+"cancel_friends_loading"="Cancel loading friends operation?";

@@ -1,0 +1,30 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "@google-cloud/firestore": "^0.10.0",
+    "firebase-admin": "~5.4.2",
+    "firebase-functions": "^0.7.1",
+    "gumbo-parser": "0.3.0",
+    "http": "0.0.0",
+    "https": "1.0.0",
+    "jsonfile": "4.0.0",
+    "memfs": "^2.6.0",
+    "node-libcurl": "^1.1.0",
+    "querystring": "0.2.0",
+    "zombie": "5.0.7"
+  },
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "author": "Bodhicitta",
+  "license": "ISC"
+}
