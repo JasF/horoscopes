@@ -37,7 +37,7 @@
     else {
         NSString *path = [NSString
                           stringWithFormat:@"/&subject=%@&body=%@", L(@"lucky_horoscope_feedback"), [self getDefaultFeedbackTextBody]];
-        NSURL *mailUrl = [[NSURL alloc] initWithScheme:@"mailto" host:@"luckyhoroscopes@gmail.com?" path:path];
+        NSURL *mailUrl = [[NSURL alloc] initWithScheme:@"mailto" host:@"beluckyhoroscopes@gmail.com?" path:path];
         [[UIApplication sharedApplication] openURL:mailUrl];
     }
     return;
