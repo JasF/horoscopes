@@ -33,6 +33,10 @@
     _blurEffectView.frame = self.view.bounds;
 }
 
+- (NSString *)text {
+    return _label.text;
+}
+
 - (void)setTextColor:(UIColor *)color {
     _label.textColor = color;
     _textColor = color;

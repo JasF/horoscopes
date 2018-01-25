@@ -556,6 +556,10 @@
 		C3E857C91FDD389C002949D9 /* FriendsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E857C81FDD389C002949D9 /* FriendsHeaderView.m */; };
 		C3E857CD1FDD73E0002949D9 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E857CC1FDD73E0002949D9 /* SDWebImage.framework */; };
 		C3EAE0281FD91D7E00EC9C3E /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EAE0271FD91D7E00EC9C3E /* MenuCell.m */; };
+		C3EC9EF72019A7B300CDE548 /* SharingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC9EF62019A7B300CDE548 /* SharingManager.m */; };
+		C3EC9EF82019A7B300CDE548 /* SharingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC9EF62019A7B300CDE548 /* SharingManager.m */; };
+		C3EC9EFE2019AB4700CDE548 /* HoroscopeSharingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC9EFD2019AB4700CDE548 /* HoroscopeSharingObject.m */; };
+		C3EC9EFF2019AB4700CDE548 /* HoroscopeSharingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC9EFD2019AB4700CDE548 /* HoroscopeSharingObject.m */; };
 		C3ECFF60200A38C00034C096 /* MainViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFF5E200A38C00034C096 /* MainViewController.mm */; };
 		C3ECFF61200A38C00034C096 /* MainViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFF5E200A38C00034C096 /* MainViewController.mm */; };
 		C3ECFF64200A3BF80034C096 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3ECFF5F200A38C00034C096 /* Main.storyboard */; };
@@ -1158,6 +1162,11 @@
 		C3E857CC1FDD73E0002949D9 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
 		C3EAE0261FD91D7E00EC9C3E /* MenuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
 		C3EAE0271FD91D7E00EC9C3E /* MenuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
+		C3EC9EF52019A7B300CDE548 /* SharingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharingManager.h; sourceTree = "<group>"; };
+		C3EC9EF62019A7B300CDE548 /* SharingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharingManager.m; sourceTree = "<group>"; };
+		C3EC9EFA2019A81E00CDE548 /* SharingObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharingObject.h; sourceTree = "<group>"; };
+		C3EC9EFC2019AB4700CDE548 /* HoroscopeSharingObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HoroscopeSharingObject.h; sourceTree = "<group>"; };
+		C3EC9EFD2019AB4700CDE548 /* HoroscopeSharingObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HoroscopeSharingObject.m; sourceTree = "<group>"; };
 		C3ECFF5E200A38C00034C096 /* MainViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainViewController.mm; sourceTree = "<group>"; };
 		C3ECFF5F200A38C00034C096 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C3ECFF66200A3C5C0034C096 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
@@ -2677,6 +2686,9 @@
 		C3C116FC1FCE86BE007DA9FF /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				C3EC9EFB2019AB2F00CDE548 /* HoroscopeSharingObject */,
+				C3EC9EF92019A7FF00CDE548 /* SharingObject */,
+				C3EC9EF42019A79D00CDE548 /* SharingManager */,
 				C3C96E3320136748008387CC /* MenuZodiacCell */,
 				C3C96E2B201356EF008387CC /* ZodiacsCell */,
 				C3A50BF2200DA50700A178AC /* MenuSimpleCell */,
@@ -3083,6 +3095,32 @@
 			path = MenuCell;
 			sourceTree = "<group>";
 		};
+		C3EC9EF42019A79D00CDE548 /* SharingManager */ = {
+			isa = PBXGroup;
+			children = (
+				C3EC9EF52019A7B300CDE548 /* SharingManager.h */,
+				C3EC9EF62019A7B300CDE548 /* SharingManager.m */,
+			);
+			path = SharingManager;
+			sourceTree = "<group>";
+		};
+		C3EC9EF92019A7FF00CDE548 /* SharingObject */ = {
+			isa = PBXGroup;
+			children = (
+				C3EC9EFA2019A81E00CDE548 /* SharingObject.h */,
+			);
+			path = SharingObject;
+			sourceTree = "<group>";
+		};
+		C3EC9EFB2019AB2F00CDE548 /* HoroscopeSharingObject */ = {
+			isa = PBXGroup;
+			children = (
+				C3EC9EFC2019AB4700CDE548 /* HoroscopeSharingObject.h */,
+				C3EC9EFD2019AB4700CDE548 /* HoroscopeSharingObject.m */,
+			);
+			path = HoroscopeSharingObject;
+			sourceTree = "<group>";
+		};
 		C3ECFF6E200A3D2F0034C096 /* UIViewControllerInjector */ = {
 			isa = PBXGroup;
 			children = (
@@ -3363,6 +3401,7 @@
 				C3C96E3020135723008387CC /* ZodiacsCell.m in Sources */,
 				C33B99D91FA375E600C0B1C6 /* AFURLResponseSerialization.m in Sources */,
 				C32A5FFF1FDBD560003CF1CA /* FriendsCell.m in Sources */,
+				C3EC9EFF2019AB4700CDE548 /* HoroscopeSharingObject.m in Sources */,
 				C30B17F01FA481C2006DEDB7 /* EXTNil.m in Sources */,
 				C3E857C91FDD389C002949D9 /* FriendsHeaderView.m in Sources */,
 				C30B17E81FA481C2006DEDB7 /* EXTSelectorChecking.m in Sources */,
@@ -3398,6 +3437,7 @@
 				C32A5FF91FDBD2AC003CF1CA /* FriendsResultsViewController.mm in Sources */,
 				C3C7ABD520022D5000CFDDD2 /* NVActivityIndicatorAnimationBallGridBeat.swift in Sources */,
 				C3C7ABE720022D5000CFDDD2 /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */,
+				C3EC9EF82019A7B300CDE548 /* SharingManager.m in Sources */,
 				C3AE95FE1FDA619A00A9C73E /* UIImage+Horo.m in Sources */,
 				C30B189A1FA5CFE6006DEDB7 /* viewmodelsimpl.cc in Sources */,
 				4B0FD3751FA06C96006378B6 /* ViewController.mm in Sources */,
@@ -3585,6 +3625,7 @@
 				C315ABF01FE5040C00CC9B67 /* AFURLResponseSerialization.m in Sources */,
 				C315ABF11FE5040C00CC9B67 /* FriendsCell.m in Sources */,
 				C3C96E2F20135723008387CC /* ZodiacsCell.m in Sources */,
+				C3EC9EFE2019AB4700CDE548 /* HoroscopeSharingObject.m in Sources */,
 				C315ABF21FE5040C00CC9B67 /* EXTNil.m in Sources */,
 				C315ABF31FE5040C00CC9B67 /* FriendsHeaderView.m in Sources */,
 				C315ABF41FE5040C00CC9B67 /* EXTSelectorChecking.m in Sources */,
@@ -3620,6 +3661,7 @@
 				C3C7ABD420022D5000CFDDD2 /* NVActivityIndicatorAnimationBallGridBeat.swift in Sources */,
 				C3C7ABE620022D5000CFDDD2 /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */,
 				C315AC0B1FE5040C00CC9B67 /* FriendsResultsViewController.mm in Sources */,
+				C3EC9EF72019A7B300CDE548 /* SharingManager.m in Sources */,
 				C315AC0C1FE5040C00CC9B67 /* UIImage+Horo.m in Sources */,
 				C315AC0D1FE5040C00CC9B67 /* viewmodelsimpl.cc in Sources */,
 				C3C7ABCA20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallPulse.swift in Sources */,

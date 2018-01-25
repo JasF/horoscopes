@@ -14,4 +14,5 @@
 - (CGFloat)getHeight;
 - (void)setTextColor:(UIColor *)color;
 - (void)setBackgroundColor:(UIColor *)backgroundColor;
+- (NSString *)text;
 @end

@@ -204,4 +204,8 @@ static NSInteger const kTodayTabIndex = 1;
     return _heightConstraint.constant;
 }
 
+- (NSString * _Nullable)currentText {
+    return [_selectedViewController text];
+}
+
 @end

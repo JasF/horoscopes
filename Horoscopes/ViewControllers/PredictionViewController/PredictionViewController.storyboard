@@ -68,6 +68,17 @@
                                 <constraint firstItem="jsw-kA-Xdw" firstAttribute="centerY" secondItem="crx-tv-KOx" secondAttribute="centerY" id="yXI-ND-R5C"/>
                             </constraints>
                         </view>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="LDZ-jt-3aI">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nCd-yM-6xR">
+                                <rect key="frame" x="308" y="0.0" width="51" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="12" maxX="12" maxY="12"/>
+                                <state key="normal" image="sharing"/>
+                                <connections>
+                                    <action selector="sharingTapped:" destination="4Ax-ex-6Gm" eventType="touchUpInside" id="ddr-Xc-YuH"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="friendCell" destination="Nvh-Hf-mrW" id="gLM-ZQ-sns"/>
@@ -76,6 +87,7 @@
                         <outlet property="networkErrorButton" destination="9Sx-n0-0Tp" id="JtD-a0-BUe"/>
                         <outlet property="networkErrorLabel" destination="Erz-a7-Bcb" id="k85-su-TA7"/>
                         <outlet property="noConnectionCell" destination="2jO-jC-Got" id="9rS-rE-uyF"/>
+                        <outlet property="sharingButton" destination="nCd-yM-6xR" id="HPi-Jf-FTJ"/>
                         <outlet property="tabs" destination="CTT-aZ-ap4" id="Qdm-2N-fEE"/>
                         <outlet property="tabsCell" destination="C2W-in-l0u" id="2Wk-eF-amo"/>
                         <outlet property="titleImageView" destination="jsw-kA-Xdw" id="0Bd-sj-YNg"/>
@@ -298,5 +310,6 @@
     </scenes>
     <resources>
         <image name="menuIcon" width="23" height="19"/>
+        <image name="sharing" width="19" height="26"/>
     </resources>
 </document>
