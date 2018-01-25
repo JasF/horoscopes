@@ -8,7 +8,9 @@
 
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "PredictionViewController.h"
+#import "HoroscopeSharingObject.h"
 #import "UINavigationBar+Horo.h"
+#import "SharingManager.h"
 #import "HoroscopesCell.h"
 #import "NSString+Horo.h"
 #import "UIColor+Horo.h"
@@ -70,7 +72,8 @@ static CGFloat const kFriendCellHeight = 65.f;
 @property (weak, nonatomic) IBOutlet UIButton *networkErrorButton;
 @property (strong, nonatomic) IBOutlet UITableViewCell *noConnectionCell;
 @property (strong, nonatomic) IBOutlet FriendCell *friendCell;
-
+@property (strong, nonatomic) SharingManager *sharingManager;
+@property (strong, nonatomic) IBOutlet UIButton *sharingButton;
 @end
 
 @implementation PredictionViewController
@@ -141,6 +144,7 @@ static CGFloat const kFriendCellHeight = 65.f;
         for (NSString *string in [NSString horo_stringsArrayWithList:titles]) {
             [localizedStrings addObject:L(string)];
         }
+        self.sharingButton.enabled = YES;
         self.tabs.titles = localizedStrings;
         self.horoscopesCell.texts = [NSString horo_stringsArrayWithList:self.viewModel->horoscopesText()];
         [self updatePredictionHeight:YES];
@@ -152,8 +156,7 @@ static CGFloat const kFriendCellHeight = 65.f;
     });
     _viewModel->didActivated();
     
-    NSString *zodiacName = L([NSString stringWithUTF8String:_viewModel->zodiacName().c_str()]);
-    _zodiacLabel.text = zodiacName;
+    _zodiacLabel.text = [self zodiacName];
     _zodiacDateLabel.text = L([NSString stringWithUTF8String:_viewModel->zodiacDateString().c_str()]);
     NSString *iconName = [NSString stringWithUTF8String:_viewModel->zodiacName().c_str()];
     UIImage *image = [UIImage imageNamed:iconName];
@@ -172,7 +175,8 @@ static CGFloat const kFriendCellHeight = 65.f;
             self.navigationController.navigationBar.prefersLargeTitles = NO;
         }
     }
-    // Do any additional setup after loading the view.
+    _sharingButton.enabled = NO;
+    _sharingButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -296,6 +300,10 @@ static CGFloat const kFriendCellHeight = 65.f;
 }
 
 #pragma mark - Private Methods
+- (NSString *)zodiacName {
+    return L([NSString stringWithUTF8String:_viewModel->zodiacName().c_str()]);
+}
+
 - (void)showProgressHUD {
     NVActivityIndicatorView *activityIndicator = [[NVActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, kActivityIndicatorSize, kActivityIndicatorSize)];
     activityIndicator.color = [[UIColor whiteColor] colorWithAlphaComponent:kAcitivityIndicatorColorAlpha];
@@ -317,11 +325,24 @@ static CGFloat const kFriendCellHeight = 65.f;
 }
 
 #pragma mark - Observers
-
 - (IBAction)noConnectionTapped:(id)sender {
     _showNoConnectionView = NO;
     [self.tableView reloadData];
     [self showProgressHUD];
     _viewModel->noConnectionTapped();
 }
+
+- (IBAction)sharingTapped:(id)sender {
+    HoroscopeSharingObject *sharingObject = [[HoroscopeSharingObject alloc] initWithZodiacName:[self zodiacName]
+                                                                                    prediction:[_horoscopesCell currentText]];
+    @weakify(self);
+    self.sharingManager = [[SharingManager alloc] initWithSharingObject:sharingObject
+                                                         viewController:self
+                                                             completion:^{
+        @strongify(self);
+        self.sharingManager = nil;
+    }];
+    [_sharingManager start];
+}
+
 @end

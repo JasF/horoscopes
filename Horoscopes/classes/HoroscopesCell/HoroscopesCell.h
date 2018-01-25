@@ -23,6 +23,7 @@ UIPageViewControllerDataSource>
 - (void)setSelectedIndex:(NSInteger)index completion:(dispatch_block_t _Nullable)completion;
 - (void)updateHeight;
 - (CGFloat)getHeight;
-- (void)setTextColor:(UIColor *)color;
-- (void)setBackgroundColor:(UIColor *)backgroundColor;
+- (void)setTextColor:(UIColor * _Nullable)color;
+- (void)setBackgroundColor:(UIColor * _Nullable)backgroundColor;
+- (NSString * _Nullable)currentText;
 @end
