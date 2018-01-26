@@ -10,7 +10,7 @@
 #define horoscopesparser_h
 
 #include "base/horobase.h"
-#include "horoscopesservice.h"
+#include "managers/horoscopesservice/horoscopesservice.h"
 
 namespace horo {
     class _HoroscopesParser {

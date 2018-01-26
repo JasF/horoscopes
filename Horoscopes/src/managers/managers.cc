@@ -7,7 +7,7 @@
 //
 
 #include "managers.h"
-#include "webviewservicefactoryimpl.h"
+#include "managers/webviewservice/webviewservicefactoryimpl.h"
 #include "modelsimpl/modelsimpl.h"
 #include "viewmodelsimpl/viewmodelsimpl.h"
 #include "screensmanager/screensmanagerimpl.h"

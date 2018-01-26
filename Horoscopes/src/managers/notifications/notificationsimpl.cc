@@ -38,7 +38,9 @@ NotificationsImpl::NotificationsImpl(strong<CoreComponents> components,
     notificationCenter_->addWillEnterForegroundCallback(this, []{
         privateInstance->cleanBadgeNumber();
     });
-    privateInstance->cleanBadgeNumber();
+    if (privateInstance) {
+        privateInstance->cleanBadgeNumber();
+    }
 }
 
 NotificationsImpl::~NotificationsImpl() {

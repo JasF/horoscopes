@@ -11,7 +11,7 @@
 
 #include "base/horobase.h"
 #include "data/person.h"
-#include "friendsscreenmodel.h"
+#include "models/friendsscreenmodel/friendsscreenmodel.h"
 
 namespace horo {
   

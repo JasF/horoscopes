@@ -17,6 +17,9 @@ namespace horo {
     
     NotificationCenterImpl::NotificationCenterImpl() {
         SCParameterAssert(g_privateInstance);
+        if (!g_privateInstance) {
+            return;
+        }
         auto willResignActive = [this]{
             for(auto it : willResignActiveCallbacks_) {
                 it.second();

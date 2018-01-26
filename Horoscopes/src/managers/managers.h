@@ -10,7 +10,7 @@
 #define managers_hpp
 
 #include <stdio.h>
-#include "webviewservice.h"
+#include "managers/webviewservice/webviewservice.h"
 #include "modelsimpl/models.h"
 #include "viewmodelsimpl/viewmodels.h"
 #include "screensmanager/screensmanager.h"

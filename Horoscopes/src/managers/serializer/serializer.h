@@ -9,7 +9,7 @@
 #ifndef serializer_h
 #define serializer_h
 
-#include "horobase.h"
+#include "base/horobase.h"
 
 namespace horo {
   

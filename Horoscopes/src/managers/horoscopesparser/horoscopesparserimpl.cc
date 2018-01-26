@@ -98,7 +98,7 @@ namespace horo {
             mapped["zodiac"] = zodiac;
             string dateString = object["date"].asString();
             int64_t date = dateStringToDate(dateString);
-            mapped["date"] = date;
+            mapped["date"] = (int)date;
             mapped["type"] = types[object["type"].asString()].asInt();
             
             horoscope->decode(mapped);

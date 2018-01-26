@@ -75,7 +75,7 @@ bool HoroscopeDAOImpl::writeHoroscope(strong<HoroscopeDTO> horoscope) {
     
 strong<HoroscopeDTO> HoroscopeDAOImpl::readHoroscope(uint64_t date, HoroscopeType type) {
     Json::Value parameters;
-    parameters["date"] = date;
+    parameters["date"] = (int) date;
     parameters["type"] = type;
     strong<ResultSet> results = database_->executeQuery(kHoroscopesSQLSelectByDateType, parameters);
     if (results.get() && results->next()) {

@@ -9,8 +9,8 @@
 #ifndef viewmodelsimpl_h
 #define viewmodelsimpl_h
 
-#include "viewmodels.h"
-#include "models.h"
+#include "managers/viewmodelsimpl/viewmodels.h"
+#include "managers/modelsimpl/models.h"
 #include "managers/screensmanager/screensmanager.h"
 #include "managers/themesmanager/themesmanager.h"
 
