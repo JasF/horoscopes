@@ -51,6 +51,19 @@ namespace horo {
         });
     }
     
+    void HelloScreenModelImpl::personRepresentation(function<void(std::string imageUrl, std::string name, horo::DateWrapper birthday)> callback) {
+        strong<Person> person = components_->person_;
+        if (!person.get()) {
+            if (callback) {
+                callback("", "", DateWrapper());
+            }
+            return;
+        }
+        if (callback) {
+            callback(person->imageUrl(), person->name(), person->birthdayDate());
+        }
+    }
+    
     void HelloScreenModelImpl::createPersonWithBirthdayDate(DateWrapper wrapper) {
         ZodiacTypes type = Zodiac::zodiacTypeByDate((Months)wrapper.month(), wrapper.day(), wrapper.year());
         strong<Zodiac> zodiac = new Zodiac(type);

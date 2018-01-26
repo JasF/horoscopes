@@ -68,9 +68,8 @@ static CGFloat const kFacebookLoginCellHeight = 44.f;
     @weakify(self);
     _viewModel->setUserLoggedInCallback([self_weak_](bool success){
         @strongify(self);
-        //LOG(LS_WARNING) << "User gathered! success: " << success;
         [self hideProgressHud];
-        [self hideWindow];
+        [self updatePersonInfo];
     });
     
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
@@ -82,6 +81,30 @@ static CGFloat const kFacebookLoginCellHeight = 44.f;
     [_pickerView setValue:[UIColor whiteColor] forKey:@"textColor"];
     _pickerView.maximumDate = [NSDate date];
     [self updateZodiacLabel];
+}
+
+- (void)updatePersonInfo {
+    @weakify(self);
+    _viewModel->personRepresentation([self_weak_](std::string imageUrl, std::string name, horo::DateWrapper birthday) {
+        @strongify(self);
+        if (birthday.year() && birthday.month()) {
+            NSCalendar *calendar = [NSCalendar currentCalendar];
+            NSDateComponents *components = [calendar components:((birthday.year()) ? NSCalendarUnitYear : 0) |
+                                            NSCalendarUnitMonth |
+                                            NSCalendarUnitDay
+                                                       fromDate:[NSDate date]];
+            components.year = birthday.year();
+            components.month = birthday.month();
+            components.day = birthday.day();
+            NSDate *date = [calendar dateFromComponents:components];
+            NSCAssert(date, @"date missing");
+            if (!date) {
+                return;
+            }
+            self.pickerView.date = date;
+            [self updateZodiacLabel];
+        }
+    });
 }
 
 - (void)viewWillLayoutSubviews {

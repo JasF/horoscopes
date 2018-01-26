@@ -22,6 +22,7 @@ namespace horo {
         virtual void loginOnFacebook() = 0;
         virtual void createPersonWithBirthdayDate(DateWrapper wrapper) = 0;
         std::function<void(bool success)> personGatheredCallback_ = nullptr;
+        virtual void personRepresentation(function<void(string imageUrl, string name, DateWrapper birthday)> callback)=0;
     };
     
     typedef reff<_HelloScreenModel> HelloScreenModel;

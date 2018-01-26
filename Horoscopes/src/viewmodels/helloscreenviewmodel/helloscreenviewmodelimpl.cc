@@ -45,4 +45,8 @@ namespace horo {
         return zodiac->name();
     }
     
+    void HelloScreenViewModelImpl::personRepresentation(function<void(std::string imageUrl, std::string name, horo::DateWrapper birthday)> callback) {
+        model_->personRepresentation(callback);
+    }
+    
 };

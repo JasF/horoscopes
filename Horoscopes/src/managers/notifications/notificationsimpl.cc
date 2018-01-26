@@ -84,6 +84,9 @@ void NotificationsImpl::didFailToRegisterForRemoteNotificationsWithError(error e
 
 void NotificationsImpl::sendSettingsIfNeeded() {
     string checkingString = generatePushSettingsString();
+    if (!checkingString.length()) {
+        return;
+    }
     string sended = serializer_->loadString("sendedPushSettings");
     if (checkingString == sended) {
         return;
@@ -131,6 +134,9 @@ void NotificationsImpl::setPushTime(int aPushTime) {
 }
 
 string NotificationsImpl::generatePushSettingsString() {
+    if (!components_->person_.get()) {
+        return "";
+    }
     SCParameterAssert(components_->person_.get());
     SCParameterAssert(components_->person_->zodiac().get());
     ZodiacTypes type = components_->person_->zodiac()->type();

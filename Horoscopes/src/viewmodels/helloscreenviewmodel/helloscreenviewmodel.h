@@ -22,6 +22,7 @@ namespace horo {
         virtual void loggedInOverFacebook()=0;
         virtual void setUserLoggedInCallback(std::function<void(bool success)> a)=0;
         virtual string zodiacNameWithDate(DateWrapper date)=0;
+        virtual void personRepresentation(function<void(string imageUrl, string name, DateWrapper birthday)> callback)=0;
         
         std::function<void(bool success)> userLoggedInCallback_ = nullptr;
     };

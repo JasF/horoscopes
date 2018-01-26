@@ -26,6 +26,7 @@ namespace horo {
     public:
         void loginOnFacebook() override;
         void createPersonWithBirthdayDate(DateWrapper wrapper) override;
+        void personRepresentation(function<void(string imageUrl, string name, DateWrapper birthday)> callback) override;
     private:
         void handlePerson(strong<Person> person);
         
