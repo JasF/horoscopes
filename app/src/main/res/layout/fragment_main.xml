@@ -6,7 +6,20 @@
     android:layout_height="match_parent"
     tools:context="com.horoscopes.jasf.horoscopes.MainActivityFragment"
     tools:showIn="@layout/activity_main">
-
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp" />
+    <Button
+        android:id="@+id/test_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp" />
     <TextView
         android:id="@+id/sample_text"
         android:layout_width="wrap_content"

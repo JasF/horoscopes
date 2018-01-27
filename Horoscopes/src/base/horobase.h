@@ -18,6 +18,7 @@
 #include <ctime>
 #include <algorithm>
 #include <set>
+#include <jni.h>
 #include "json/value.h"
 #include "rtc_base/refcountedobject.h"
 #include "rtc_base/scoped_ref_ptr.h"
@@ -54,6 +55,10 @@ namespace horo {
     string findInSet(std::set<std::string> storage, string pattern);
     string ReplaceAll(string str, const string& from, const string& to);
     wstring toUtf16(std::string utf8);
+
+#ifdef ANDROID
+
+#endif
 }
 
 #endif /* horobase_hpp */

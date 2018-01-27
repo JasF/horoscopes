@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "497634587055",
+    "firebase_url": "https://horo-ios.firebaseio.com",
+    "project_id": "horo-ios",
+    "storage_bucket": "horo-ios.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497634587055:android:77044938045e8d34",
+        "android_client_info": {
+          "package_name": "com.horoscopes.jasf.horoscopes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "497634587055-20cio1j7gk7nac3qsakfqjqctgq55uo8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6hOoaTMzibAZK0rwXKQ6TK8vsoO3SLdE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

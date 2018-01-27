@@ -10,12 +10,24 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.orhanobut.logger.*;
+
+
 public class MainActivity extends AppCompatActivity {
 
     // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
     }
+
+    CallbackManager callbackManager = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +48,32 @@ public class MainActivity extends AppCompatActivity {
         // Example of a call to a native method
         TextView tv = (TextView) findViewById(R.id.sample_text);
         tv.setText(stringFromJNI());
+
+
+
+/*
+        callbackManager = CallbackManager.Factory.create();
+        // Callback registration
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                // App code
+                Logger.d("onSuccess");
+            }
+
+            @Override
+            public void onCancel() {
+                // App code
+                Logger.d("onCancel");
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                // App code
+                Logger.d("onError");
+            }
+        });
+        */
     }
 
     @Override
