@@ -11,10 +11,14 @@ import android.widget.TextView;
  */
 
 public class PredictionScreen extends Activity {
-
+    static {
+        System.loadLibrary("native-lib");
+    }
+    public native void setPrivateInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setPrivateInstance();
         setContentView(R.layout.prediction_screen);
 
 

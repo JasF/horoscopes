@@ -18,7 +18,7 @@ namespace horo {
     public:
         DocumentSnapshotJava(jobject snapshot)
                 : snapshot_(snapshot) {}
-        ~DocumentSnapshotObjc() override {}
+        ~DocumentSnapshotJava() override {}
     public:
         Json::Value data() const override {
             Json::Value value;
@@ -45,13 +45,13 @@ namespace horo {
 
     class DocumentReferenceJava : public DocumentReference {
     public:
-        DocumentReferenceJava(FIRDocumentReference *reference)
+        DocumentReferenceJava(jobject reference)
                 : reference_(reference) {}
         ~DocumentReferenceJava() override {}
     public:
         virtual void getDocumentWithCompletion(std::function<void(strong<DocumentSnapshot> snapshot, error err)> completion) override {
-            strong<DocumentSnapshot> documentSnapshot = new DocumentSnapshotJava(nullptr);
-            return documentSnapshot;
+           // strong<DocumentSnapshot> documentSnapshot = new DocumentSnapshotJava(nullptr);
+            //return documentSnapshot;
             /*
             [reference_ getDocumentWithCompletion:^(FIRDocumentSnapshot * _Nullable snapshot, NSError * _Nullable aError) {
             if (snapshot) {
@@ -70,13 +70,13 @@ namespace horo {
         }
 
     private:
-        FIRDocumentReference *reference_;
+        jobject reference_;
     };
 
     class CollectionReferenceJava : public CollectionReference {
     public:
-        CollectionReferenceObjc(jobject reference) : reference_(reference) {}
-        ~CollectionReferenceObjc() override {}
+        CollectionReferenceJava(jobject reference) : reference_(reference) {}
+        ~CollectionReferenceJava() override {}
         strong<DocumentReference> documentWithPath(std::string path) override {
             strong<DocumentReference> documentReference = new DocumentReferenceJava(nullptr);
             /*
@@ -97,10 +97,6 @@ namespace horo {
 
     class FirestoreJavaImpl : public Firestore {
     public:
-        FirestoreJavaImpl() : jobject_(nullptr) {}
-        ~FirestoreJavaImpl() override {
-
-        }
         static FirestoreJavaImpl *shared() {
             static FirestoreJavaImpl *sharedInstance = nullptr;
             if (sharedInstance == nullptr) {
@@ -109,11 +105,12 @@ namespace horo {
             }
             return sharedInstance;
         }
-        FirestoreJavaImpl() {
+        FirestoreJavaImpl() : jobject_(nullptr) {
 
         }
         ~FirestoreJavaImpl() override {
             if (jobject_) {
+                JavaVM *g_vm = getVM();
                 JNIEnv * g_env;
                 // double check it's all ok
                 int getEnvStat = g_vm->GetEnv((void **)&g_env, JNI_VERSION_1_6);
@@ -121,7 +118,7 @@ namespace horo {
                 if (getEnvStat == JNI_EDETACHED) {
                     atached = true;
                     std::cout << "GetEnv: not attached" << std::endl;
-                    if (g_vm->AttachCurrentThread((void **) &g_env, NULL) != 0) {
+                    if (g_vm->AttachCurrentThread((JNIEnv **) &g_env, NULL) != 0) {
                         std::cout << "Failed to attach" << std::endl;
                     }
                 } else if (getEnvStat == JNI_OK) {
@@ -158,6 +155,6 @@ JNIEXPORT void
 JNICALL
 Java_com_horoscopes_jasf_horoscopes_Firestore_setPrivateInstance(
         JNIEnv *env,
-        jobject this) {
-    FirestoreJavaImpl::shared()->setJObject(env->NewGlobalRef(this));
+        jobject aObject) {
+    FirestoreJavaImpl::shared()->setJObject(env->NewGlobalRef(aObject));
 }

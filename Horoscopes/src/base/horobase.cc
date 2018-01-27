@@ -92,5 +92,17 @@ namespace horo {
         return wstr;
 #endif
     }
+
+#ifdef ANDROID
+
+    static JavaVM *g_jvm = nullptr;
+    JavaVM *getVM() {
+        return g_jvm;
+    }
+
+    void setVM(JavaVM *jvm) {
+        g_jvm = jvm;
+    }
+#endif
 };
 

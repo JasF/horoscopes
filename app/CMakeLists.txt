@@ -28,6 +28,9 @@ add_library( # Sets the name of the library.
 ../Horoscopes/Components/jsoncpp/src/lib_json/json_value.cpp
 
 ../Horoscopes/src/android/Platform/platform.cc
+../Horoscopes/src/android/Firestore/firestore.cc
+../Horoscopes/src/android/Activities/PredictionScreen/predictionscreen.cc
+../Horoscopes/src/android/ScreensManager/screensmanager.cc
 
 ../Horoscopes/src/database/databaseimpl.cc
 ../Horoscopes/src/viewmodels/helloscreenviewmodel/helloscreenviewmodelimpl.cc

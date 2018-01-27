@@ -25,6 +25,9 @@
 #include "rtc_base/logging.h"
 #include "base/horoasserts.h"
 #include "data/color.h"
+#ifdef ANDROID
+#include <jni.h>
+#endif
 
 template<typename T>
 using strong = rtc::scoped_refptr<T>;
@@ -55,9 +58,9 @@ namespace horo {
     string findInSet(std::set<std::string> storage, string pattern);
     string ReplaceAll(string str, const string& from, const string& to);
     wstring toUtf16(std::string utf8);
-
 #ifdef ANDROID
-
+    JavaVM *getVM();
+    void setVM(JavaVM *jvm);
 #endif
 }
 

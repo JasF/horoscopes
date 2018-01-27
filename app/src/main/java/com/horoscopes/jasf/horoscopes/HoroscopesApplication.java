@@ -14,5 +14,6 @@ public class HoroscopesApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Logger.addLogAdapter(new AndroidLogAdapter());
+        ScreensManager.shared();
     }
 }
