@@ -3,6 +3,7 @@
 //
 
 #include "managers/screensmanager/screensmanagerimpl.h"
+#include "android/Activities/PredictionScreen/predictionscreenjava.h"
 #include "managers/managers.h"
 
 using namespace std;
@@ -29,12 +30,17 @@ using namespace horo;
                 if (person.get() && !person->zodiac().get()) {
                     return;
                 }
-
+                showPredictionViewController(person, false, nullptr);
             }
 
             void showPredictionViewController(strong<Zodiac> zodiac) override {
                 SCParameterAssert( zodiac.get() );
+                showPredictionViewController(nullptr, false, zodiac);
+            }
 
+            void showPredictionViewController(strong<Person> person, bool push, strong<Zodiac> zodiac) {
+                strong<PredictionScreenViewModel> viewModel = impl_->viewModels()->predictionScreenViewModel(person, zodiac);
+                PredictionScreenViewModelDelegateImpl *impl = new PredictionScreenViewModelDelegateImpl(viewModel);
             }
 
             void showPredictionViewController() override {
@@ -85,5 +91,7 @@ JNIEXPORT void
 Java_com_horoscopes_jasf_horoscopes_ScreensManager_setPrivateInstance(
         JNIEnv *env,
 jobject aObject) {
+    setEnv(env);
+
     g_sharedInstance = new ScreensManagerJava(Managers::shared().screensManager(), env->NewGlobalRef(aObject));
 }

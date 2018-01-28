@@ -141,7 +141,8 @@ namespace horo {
         }
     public:
         strong<CollectionReference> collectionWithPath(std::string path) override {
-
+            strong<CollectionReference> value;
+            return value;
         }
 
         inline void setJObject(jobject aObject) { jobject_ = aObject; }
