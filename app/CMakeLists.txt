@@ -29,8 +29,10 @@ add_library( # Sets the name of the library.
 
 ../Horoscopes/src/android/Platform/platform.cc
 ../Horoscopes/src/android/Firestore/firestore.cc
-../Horoscopes/src/android/Activities/PredictionScreen/predictionscreen.cc
+../Horoscopes/src/android/Activities/PredictionScreen/predictionscreenjava.cc
 ../Horoscopes/src/android/ScreensManager/screensmanager.cc
+../Horoscopes/src/android/Notifications/notificationsjava.cc
+../Horoscopes/src/base/horobasejava.cc
 
 ../Horoscopes/src/database/databaseimpl.cc
 ../Horoscopes/src/viewmodels/helloscreenviewmodel/helloscreenviewmodelimpl.cc

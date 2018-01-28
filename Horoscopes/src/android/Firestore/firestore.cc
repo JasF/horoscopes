@@ -105,48 +105,20 @@ namespace horo {
             }
             return sharedInstance;
         }
-        FirestoreJavaImpl() : jobject_(nullptr) {
+        FirestoreJavaImpl() {
 
         }
         ~FirestoreJavaImpl() override {
-            if (jobject_) {
-                JavaVM *g_vm = getVM();
-                JNIEnv * g_env;
-                // double check it's all ok
-                int getEnvStat = g_vm->GetEnv((void **)&g_env, JNI_VERSION_1_6);
-                bool atached = false;
-                if (getEnvStat == JNI_EDETACHED) {
-                    atached = true;
-                    std::cout << "GetEnv: not attached" << std::endl;
-                    if (g_vm->AttachCurrentThread((JNIEnv **) &g_env, NULL) != 0) {
-                        std::cout << "Failed to attach" << std::endl;
-                    }
-                } else if (getEnvStat == JNI_OK) {
-                    //
-                } else if (getEnvStat == JNI_EVERSION) {
-                    std::cout << "GetEnv: version not supported" << std::endl;
-                }
-
-                g_env->DeleteGlobalRef(jobject_);
-                jobject_ = nullptr;
-
-                if (g_env->ExceptionCheck()) {
-                    g_env->ExceptionDescribe();
-                }
-
-                if (atached) {
-                    g_vm->DetachCurrentThread();
-                }
-            }
         }
     public:
         strong<CollectionReference> collectionWithPath(std::string path) override {
-
+            strong<CollectionReference> value;
+            return value;
         }
 
-        inline void setJObject(jobject aObject) { jobject_ = aObject; }
+        inline void setJObject(strong<LocalRef> aObject) { object_ = aObject; }
     private:
-        jobject jobject_;
+        strong<LocalRef> object_;
     };
 
 };
@@ -156,5 +128,5 @@ JNICALL
 Java_com_horoscopes_jasf_horoscopes_Firestore_setPrivateInstance(
         JNIEnv *env,
         jobject aObject) {
-    FirestoreJavaImpl::shared()->setJObject(env->NewGlobalRef(aObject));
+    FirestoreJavaImpl::shared()->setJObject(new LocalRef(aObject));
 }

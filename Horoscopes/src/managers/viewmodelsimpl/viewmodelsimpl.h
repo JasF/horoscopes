@@ -13,6 +13,7 @@
 #include "managers/modelsimpl/models.h"
 #include "managers/screensmanager/screensmanager.h"
 #include "managers/themesmanager/themesmanager.h"
+#include "viewmodels/viewmodeldelegate.h"
 
 namespace horo {
     
