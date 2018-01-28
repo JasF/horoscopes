@@ -3,6 +3,7 @@
 //
 
 #include "android/Activities/PredictionScreen/predictionscreenjava.h"
+#include "managers/managers.h"
 
 namespace horo {
     strong<LocalRef> g_activityReference = nullptr;
@@ -49,5 +50,6 @@ Java_com_horoscopes_jasf_horoscopes_PredictionScreen_setPrivateInstance(
     setEnv(env);
 
     g_activityReference = new LocalRef(aThis);
+    Managers::shared().screensManager()->showPredictionViewController();
     // g_sharedInstance->setActivity(env->NewGlobalRef())
 }

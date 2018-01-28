@@ -1,21 +1,22 @@
 package com.horoscopes.jasf.horoscopes;
 
 /**
- * Created by jasf on 27.01.2018.
+ * Created by jasf on 28.01.2018.
  */
 
-public class Firestore {
+public class Notifications {
     static {
         System.loadLibrary("native-lib");
     }
     public native void setPrivateInstance();
-    Firestore() {
+    Notifications() {
         setPrivateInstance();
     }
-    static Firestore sharedInstance = null;
-    static Firestore shared() {
+
+    public static Notifications sharedInstance = null;
+    static Notifications shared() {
         if (sharedInstance == null) {
-            sharedInstance = new Firestore();
+            sharedInstance = new Notifications();
         }
         return sharedInstance;
     }

@@ -92,6 +92,6 @@ Java_com_horoscopes_jasf_horoscopes_ScreensManager_setPrivateInstance(
         JNIEnv *env,
 jobject aObject) {
     setEnv(env);
-
     g_sharedInstance = new ScreensManagerJava(Managers::shared().screensManager(), env->NewGlobalRef(aObject));
+    ScreensManagerImpl::setPrivateInstance(g_sharedInstance);
 }
