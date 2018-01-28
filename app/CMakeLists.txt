@@ -33,6 +33,10 @@ add_library( # Sets the name of the library.
 ../Horoscopes/src/android/ScreensManager/screensmanager.cc
 ../Horoscopes/src/android/Notifications/notificationsjava.cc
 ../Horoscopes/src/base/horobasejava.cc
+../Horoscopes/src/android/classescache/classescache.cc
+../Horoscopes/src/android/CollectionReference/collectionreferencejava.cc
+../Horoscopes/src/android/DocumentReference/documentreferencejava.cc
+../Horoscopes/src/android/DocumentSnapshot/documentsnapshotjava.cc
 
 ../Horoscopes/src/database/databaseimpl.cc
 ../Horoscopes/src/viewmodels/helloscreenviewmodel/helloscreenviewmodelimpl.cc

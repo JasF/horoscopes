@@ -6,6 +6,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.orhanobut.logger.Logger;
+
 /**
  * Created by jasf on 27.01.2018.
  */
@@ -47,6 +49,11 @@ public class PredictionScreen extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setTodayText(String text) {
+        TextView textView = findViewById(R.id.sample_text);
+        textView.setText(text);
     }
 
 }

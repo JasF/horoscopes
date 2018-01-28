@@ -42,6 +42,8 @@ namespace horo {
         strong<Firestore> firestore_;
         strong<HoroscopesParser> parser_;
         strong<HoroscopeDAO> horoscopeDAO_;
+        strong<CollectionReference> collectionReference_;
+        strong<DocumentReference> documentReference_;
     };
     
 };

@@ -45,6 +45,7 @@ namespace horo {
             }
         }
 
+        jobject object() { return object_; }
 
     private:
         jobject  object_;
@@ -52,30 +53,48 @@ namespace horo {
 
     typedef reff<_LocalRef> LocalRef;
 
-
-    class _GlobalRef {
+    template <class T> class GlobalRef {
     public:
-        _GlobalRef(jobject obj) : object_(nullptr) {
+        GlobalRef(T obj) : object_(nullptr) {
             SCParameterAssert(obj);
             if (obj) {
-                object_ = getEnv()->NewGlobalRef(obj);
+                object_ = static_cast<T>( getEnv()->NewGlobalRef((jobject)obj) );
+                //getEnv()->DeleteLocalRef( obj );
             }
         }
 
-        ~_GlobalRef() {
+        ~GlobalRef() {
             if (object_) {
                 getEnv()->DeleteGlobalRef(object_);
             }
         }
 
 
+        void AddRef() const { ref_count_.IncRef(); }
+        rtc::RefCountReleaseStatus Release() const {
+            const auto status = ref_count_.DecRef();
+            if (status == rtc::RefCountReleaseStatus::kDroppedLastRef) {
+                delete this;
+            }
+            return status;
+        }
+        bool HasOneRef() const { return ref_count_.HasOneRef(); }
+        T get() { return object_; }
     private:
-        jobject  object_;
+        T  object_;
+        mutable webrtc::webrtc_impl::RefCounter ref_count_{0};
     };
 
-    typedef reff<_LocalRef> LocalRef;
+
+    typedef GlobalRef<jclass> GlobalClassRef;
+    typedef GlobalRef<jobject> GlobalObjectRef;
+
+
+    //typedef reff<_GlobalRef> GlobalRef;
 
 };
+
+#include "android/classescache/classescache.h"
 
 #endif
 

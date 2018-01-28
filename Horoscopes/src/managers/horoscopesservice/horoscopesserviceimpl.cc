@@ -20,23 +20,23 @@ namespace horo {
             offlineFetchHoroscopes(zodiac, callback);
             return;
         }
-        strong<CollectionReference> collectionReference = firestore_->collectionWithPath("horoscopes");
+        collectionReference_ = firestore_->collectionWithPath("horoscopes");
         SCParameterAssert(collectionReference.get());
-        if (!collectionReference.get()) {
+        if (!collectionReference_.get()) {
             if (callback) {
                 callback(nullptr, nullptr, nullptr, nullptr, nullptr, nullptr);
             }
             return;
         }
-        strong<DocumentReference> documentReference = collectionReference->documentWithPath(zodiac->name());
+        documentReference_ = collectionReference_->documentWithPath(zodiac->name());
         SCParameterAssert(documentReference.get());
-        if (!documentReference.get()) {
+        if (!documentReference_.get()) {
             if (callback) {
                 callback(nullptr, nullptr, nullptr, nullptr, nullptr, nullptr);
             }
             return;
         }
-        documentReference->getDocumentWithCompletion([this, callback](strong<DocumentSnapshot> snapshot, error err){
+        documentReference_->getDocumentWithCompletion([this, callback](strong<DocumentSnapshot> snapshot, error err){
             if (!snapshot.get()) {
                 if (callback) {
                     callback(nullptr, nullptr, nullptr, nullptr, nullptr, nullptr);

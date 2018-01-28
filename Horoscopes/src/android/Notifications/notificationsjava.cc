@@ -57,6 +57,7 @@ JNIEXPORT void
 Java_com_horoscopes_jasf_horoscopes_Notifications_setPrivateInstance(
         JNIEnv *env,
 jobject aObject) {
+    setEnv(env);
     NotificationsImpl::setPrivateInstance(NotificationsJava::shared());
 //
 // FirestoreJavaImpl::shared()->setJObject(env->NewGlobalRef(aObject));

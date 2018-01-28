@@ -53,6 +53,11 @@ void zerous(tm *time) {
 
 void PredictionScreenModelImpl::loadData() {
     requestCompleted_ = false;
+#ifdef ANDROID
+    requestCompleted_ = true;
+    yesterdayTimestamp_ = 1;
+    todayTimestamp_ = 1;
+#endif
     yesterdayTimestamp_ = false;
     todayTimestamp_ = false;
     tomorrowTimestamp_ = false;
@@ -111,6 +116,12 @@ void PredictionScreenModelImpl::loadData() {
         week_ = week;
         month_ = month;
         year_ = year;
+
+#ifdef ANDROID
+        requestCompleted_ = true;
+        yesterdayTimestamp_ = 1;
+        todayTimestamp_ = 1;
+#endif
         if (yesterdayTimestamp_ || todayTimestamp_) {
             processFetchedHoroscopes();
         }
@@ -153,6 +164,14 @@ void PredictionScreenModelImpl::handleFetchedHoroscopes(strong<HoroscopeDTO> yes
     strong<HoroscopeDTO> newTomorrowHoroscope = hasHoroscopeWithDate(tomorrowTimestamp_, daysHoroscopes);
     strong<HoroscopeDTO> newWeekHoroscope = hasHoroscopeWithDate(weekTimestamp_, {week});
     strong<HoroscopeDTO> newYearHoroscope = hasHoroscopeWithDate(monthTimestamp_, {month});
+
+#ifdef ANDROID
+    newYesterdayHoroscope = yesterday;
+    newTodayHoroscope = today;
+    newTomorrowHoroscope = tomorrow;
+    newWeekHoroscope = week;
+    newYearHoroscope = month;
+#endif
     
     vector<string> allTabsTitles = {"yesterday", "today", "tomorrow", "week", "month", "year"};
     
