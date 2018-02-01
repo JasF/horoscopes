@@ -6,9 +6,9 @@ credentialsFilename = "./../horo-ios-287dcbc8f4c6.json"
 const firestore = new Firestore({projectId: 'horo-ios',
                                 keyFilename: credentialsFilename });
 
-exports.writeHoroscope = function (zodiacName, tabsType, horoscope, callback) {
+exports.writeHoroscope = function (zodiacName, tabsType, horoscope, dateString, callback) {
     horoType = common.horoTypeByTabsType(tabsType);
-    dateString = common.dateStringFromPredictionText(horoscope, tabsType)
+    
     if (dateString.length == 0) {
         logs.debug('cannot obtain date from horoscope text: ' + horoscope);
         process.exit(1);

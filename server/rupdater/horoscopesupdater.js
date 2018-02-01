@@ -35,6 +35,7 @@ exports.beginUpdate = function (completion) {
         try {
           parser.parse(body, function(zodiacName, predictionText) {
             predictionText = common.trim(predictionText)
+            dateString = common.dateStringFromPredictionText(predictionText, tabType) // это нужно рефакторить в первую очередь
             logs.debug('parsed. zodiacName: ' + zodiacName + '; predictionText: ' + predictionText);
             storage.writeHoroscope(zodiacName, tabType, predictionText, function () {
               logs.info('saved: ' + zodiacName + '; type: ' + tabType)

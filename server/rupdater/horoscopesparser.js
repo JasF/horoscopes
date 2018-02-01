@@ -4,6 +4,19 @@ var gumbo = require("gumbo-parser");
 var zodiacKey = ""
 var parameters = {}
 var textStorage = ""
+var dateStorage = ""
+
+function invokeDateTextFromTree(tree) {
+    for (var i = 0; i < tree.childNodes.length; i++) {
+        var child = tree.childNodes[i];
+        if (child.nodeType == 1) {
+            invokeDateTextFromTree(child)
+        }
+        else if (child.nodeType == 3 /*3 == Text*/) {
+            dateStorage += child.textContent
+        }
+    }
+}
 
 function invokeTextFromTreeWithZodiacKey(tree, key) {
     var classValue = ""
@@ -50,7 +63,12 @@ function ruInvokePayloadData(tree, completion) {
                 textStorage = ""
                 logs.debug('**** pre invokeTextFromTreeWithZodiacKey')
                 invokeTextFromTreeWithZodiacKey(tree, zodiacKey)
-                logs.debug('invoked: ' + textStorage)
+            }
+            else if (attribute.name == "id" && attribute.value == "type2") {
+                dateStorage = ""
+                invokeDateTextFromTree(tree);
+                dateStorage = dateStorage.trim()
+                logs.debug(dateStorage);
             }
         }
     }
@@ -65,7 +83,6 @@ function ruInvokePayloadData(tree, completion) {
     
     for (var i = 0; i < tree.childNodes.length; i++) {
         var child = tree.childNodes[i];
-        //logs.debug('child.nodeType: ' + child.nodeName);
         if (child.nodeType == 1 /*1 == Element*/) {
             ruInvokePayloadData(child, null)
         }
@@ -78,7 +95,6 @@ function ruInvokePayloadData(tree, completion) {
 
 exports.parse = function (text, completion) {
     headIndex = text.indexOf("<head>")
-    logs.debug('index of: ' + headIndex);
     if (headIndex > 0) {
         text = text.substr(headIndex)
     }
