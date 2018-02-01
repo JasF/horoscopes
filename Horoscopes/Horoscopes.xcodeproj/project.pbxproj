@@ -702,6 +702,12 @@
 		C30B18A71FA5D590006DEDB7 /* WelcomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		C30B18A81FA5D590006DEDB7 /* WelcomeViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WelcomeViewController.mm; sourceTree = "<group>"; };
 		C30B18AA1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WelcomeViewController.storyboard; sourceTree = "<group>"; };
+		C30CCB932022DA10002111E0 /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		C30CCB942022DA10002111E0 /* bootstrap.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = bootstrap.js; sourceTree = "<group>"; };
+		C30CCB952022DA10002111E0 /* horoscopesdownloader.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = horoscopesdownloader.js; sourceTree = "<group>"; };
+		C30CCB962022DA10002111E0 /* horoscopesparser.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = horoscopesparser.js; sourceTree = "<group>"; };
+		C30CCB972022DA11002111E0 /* horoscopesupdater.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = horoscopesupdater.js; sourceTree = "<group>"; };
+		C30CCB982022DA11002111E0 /* jobsmanager.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = jobsmanager.js; sourceTree = "<group>"; };
 		C315ACC61FE5040C00CC9B67 /* Horoscopes-censored.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Horoscopes-censored.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C315ACCA1FE504FD00CC9B67 /* Horoscopes-censored-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Horoscopes-censored-Info.plist"; sourceTree = "<group>"; };
 		C315ACCB1FE504FD00CC9B67 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -1633,6 +1639,19 @@
 			path = WelcomeViewController;
 			sourceTree = "<group>";
 		};
+		C30CCB922022D94A002111E0 /* rupdater */ = {
+			isa = PBXGroup;
+			children = (
+				C30CCB942022DA10002111E0 /* bootstrap.js */,
+				C30CCB952022DA10002111E0 /* horoscopesdownloader.js */,
+				C30CCB962022DA10002111E0 /* horoscopesparser.js */,
+				C30CCB972022DA11002111E0 /* horoscopesupdater.js */,
+				C30CCB982022DA11002111E0 /* jobsmanager.js */,
+				C30CCB932022DA10002111E0 /* package.json */,
+			);
+			path = rupdater;
+			sourceTree = "<group>";
+		};
 		C315ACC81FE504FC00CC9B67 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1836,6 +1855,7 @@
 		C3232D671FFB8BAC0027089E /* server */ = {
 			isa = PBXGroup;
 			children = (
+				C30CCB922022D94A002111E0 /* rupdater */,
 				C3C8A38020186B3400090E1A /* sources.py */,
 				C32330F71FFBD5910027089E /* pusher */,
 				C3232D6F1FFB8C200027089E /* common */,
