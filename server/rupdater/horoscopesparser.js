@@ -1,7 +1,6 @@
 logs = require('../common/logger').getLogger();
 var gumbo = require("gumbo-parser");
 
-
 var zodiacKey = ""
 var parameters = {}
 var textStorage = ""
@@ -44,8 +43,6 @@ function invokeTextFromTreeWithZodiacKey(tree, key) {
 }
 
 function ruInvokePayloadData(tree, completion) {
-    //logs.debug('tree.childNodes.length: ' + tree.childNodes.length);
-    //logs.debug('tree.nodeName: ' + tree.nodeName);
     if (tree.nodeName == "div") {
         for (var y = 0; y < tree.attributes.length; y++) {
             attribute = tree.attributes[y];
@@ -89,12 +86,7 @@ exports.parse = function (text, completion) {
     var root = tree["root"]
     logs.debug('RU root: ' + root);
     ruInvokePayloadData(root, function (zodiacName, predictionText) {
-                 
+                        logs.debug('zodiacName: ' + zodiacName + '; predictionText length: ' + (predictionText != null) ? predictionText.length : 0)
+                        completion(zodiacName, predictionText)
                  });
-    /*
-    ruInvokePayloadData(root, function (zodiacName, predictionText) {
-        logs.debug('zodiacName: ' + zodiacName + '; predictionText length: ' + (predictionText != null) ? predictionText.length : 0)
-        completion(zodiacName, predictionText)
-    })
-     */
 }
