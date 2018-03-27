@@ -3,7 +3,7 @@
 //  Horoscopes
 //
 //  Created by Jasf on 19.01.2018.
-//  Copyright © 2018 Mail.Ru. All rights reserved.
+//  Copyright © 2018 Freedom. All rights reserved.
 //
 
 #ifndef color_h
